@@ -1,0 +1,16 @@
+body {
+	background-image: url("omfgdogs.gif");
+}
+
+div#credit a{
+	text-decoration: none;
+	color: white;
+	font-size: 30px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+div#smallscreen {
+	display: none;
+}

@@ -1,0 +1,14 @@
+body {
+	background: black;
+}
+
+div#credit a{
+	display: none;
+}
+
+div#smallscreen {
+	color: white;
+	font-size: 40px;
+	margin-top: 10%;
+	text-align: center;
+}
