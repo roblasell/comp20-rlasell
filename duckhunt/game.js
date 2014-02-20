@@ -1,3 +1,5 @@
+
+//draws a few duckhunt sprites to the canvas
 function draw() {
 	var canvas = document.getElementById('game');
 	if (canvas.getContext) {
@@ -5,10 +7,9 @@ function draw() {
 		var sprite_sheet = new Image();
 		sprite_sheet.src = "assets/duckhunt.png";
 		sprite_sheet.onload = function() {
+			//sky
 			ctx.fillStyle = "#87CEEB";
 			ctx.fillRect(0, 0, 800, 500);
-
-			//ctx.drawImage(image, x, y, w, h, x2, y2, w2, h2);
 
 			//tree
 			ctx.drawImage(sprite_sheet, 0, 270, 75, 150, 0, 50, 250, 500);
