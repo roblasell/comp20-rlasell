@@ -1,11 +1,22 @@
 body {
+	background: #DEB887;
 	font-size: 20px;
+	font-family: Georgia;
 }
 
-table {
-	empty-cells: show;
+ul {
+	list-style-type: none;
+	background: #202020;
+	color: #999999;
+	margin: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	width: 580px;
+	border-radius: 10px;
 }
 
-tr {
-	background: green;
+ul:hover {
+	background: #F08080;
+	color: black;
 }
