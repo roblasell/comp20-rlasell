@@ -1,5 +1,5 @@
 body {
-	background: #DEB887;
+	background: #A9A9A9;
 	font-size: 20px;
 	font-family: Georgia;
 }
@@ -7,7 +7,7 @@ body {
 ul {
 	list-style-type: none;
 	background: #202020;
-	color: #999999;
+	color: #F08080;
 	margin: 20px;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -18,5 +18,5 @@ ul {
 
 ul:hover {
 	background: #F08080;
-	color: black;
+	color: #202020;
 }
