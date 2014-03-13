@@ -11,17 +11,17 @@
 		list = document.getElementById('list');
 		parsed = JSON.parse(str);
 		for (var i = 0; i < parsed.length; i++) {
-			var ul2 = document.createElement('ul');
+			var ul = document.createElement('ul');
 			var li = document.createElement('li');
 			li.innerHTML = "Company: " + parsed[i].company;
-			ul2.appendChild(li);
+			ul.appendChild(li);
 			li = document.createElement('li');
 			li.innerHTML = "Location: " + parsed[i].location;
-			ul2.appendChild(li);
+			ul.appendChild(li);
 			li = document.createElement('li');
 			li.innerHTML = "Position: " + parsed[i].position;
-			ul2.appendChild(li);
-			list.appendChild(ul2);
+			ul.appendChild(li);
+			list.appendChild(ul);
 		}
 	}
 </script>
