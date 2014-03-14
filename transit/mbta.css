@@ -12,6 +12,6 @@ body {
 	height: 100%;
 }
 
-table {
-	border: black;
+table, tr, td {
+	border: 1px solid black;
 }
