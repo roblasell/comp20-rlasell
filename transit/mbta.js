@@ -117,7 +117,7 @@ function closestStation() {
 	var lng = markers[0].position.A;
 	var distance;
 	closest = {"Station": markers[0].title, "Distance": haversine(myLat, lat, myLong, lng)};
-	for (var m = 0; m < markers.length; m++) {
+	for (var m = 1; m < markers.length; m++) {
 		lat = markers[m].position.k;
 		lng = markers[m].position.A;
 		distance = haversine(myLat, lat, myLong, lng);
