@@ -3,16 +3,7 @@
 <html>
 
 <head>
-	<script>
-		function postUpdate() {
-			var msg = document.getElementById("msg").value;
-			var time = new Date();
-			var updates = document.getElementById("updates");
-			var new_update = document.createElement('li');
-			new_update.appendChild(document.createTextNode((time.getMonth() + 1) + '/' + time.getDate() + '/' + time.getFullYear() + ' ' + time.getHours() + ':' + time.getMinutes() + ' - ' + msg));
-			updates.insertBefore(new_update, updates.firstChild);
-		}
-	</script>
+	<script src="profile.js"></script>
 	<title>Fecesbook</title>
 </head>
 
@@ -29,11 +20,9 @@
 		</ul>
 	</div>
 	<h2 id="fullname">Barney Gumble</h2>
-	<h3>What are you thinking about? <input type="text" id="msg" name="msg" size="30" onchange="postUpdate();"/></h3>
+	<h3>What are you thinking about? <input type="text" id="msg" name="msg" size="30" onchange="store();"/></h3>
 	<h3>Updates</h3>
 	<div id="status">
-		<ul id="updates">
-		</ul>
 	</div>
 	<div id="yesterday">
 		<h3>Updates from yesterday:</h3>
