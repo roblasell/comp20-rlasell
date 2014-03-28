@@ -1,4 +1,4 @@
-/* OLD (lab 5)
+/* OLD (lab 5), I didn't want to get rid of the old work
 
 function postUpdate() {
 	var msg = document.getElementById("msg").value;
@@ -10,21 +10,19 @@ function postUpdate() {
 	updates.insertBefore(new_update, updates.firstChild);
 }*/
 
-if(localStorage["dates"] == null) {
-	localStorage["dates"] = "{}";
+if(localStorage["posts"] == null) {
+	localStorage["posts"] = "[]";
 }
 
-var dates
+var posts
 
 function store()
 {
-	dates = JSON.parse(localStorage["dates"]);
+	posts = JSON.parse(localStorage["posts"]);
 	txt = document.getElementById("msg").value;
 	tmp = new Date();
-	tmp2 = tmp.getTime();
-	dates[tmp2] = (tmp.getMonth() + 1) + '/' + tmp.getDate() + '/' + tmp.getFullYear() + ' ' + tmp.getHours() + ':' + tmp.getMinutes() + ' - ';
-	localStorage[tmp2] = txt;
-	localStorage["dates"] = JSON.stringify(dates);
+	posts.push((tmp.getMonth() + 1) + '/' + tmp.getDate() + '/' + tmp.getFullYear() + ' ' + tmp.getHours() + ':' + tmp.getMinutes() + ' - ' + txt);
+	localStorage["posts"] = JSON.stringify(posts);
 	reload();
 }
 
@@ -32,10 +30,8 @@ function reload()
 {
 	elem = document.getElementById("status")
 	updates = "";
-	for (key in localStorage) {
-		if (key != "dates") {
-			updates = updates + "<p>" + dates[key] + localStorage[key] + "</p>\n";
-		}
+	for (i = 0; i < posts.length; i++) {
+		updates = updates + "<p>" + posts[i] + "</p>\n";
 	}
 	elem.innerHTML = updates;
 }
