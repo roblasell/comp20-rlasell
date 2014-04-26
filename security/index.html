@@ -20,12 +20,74 @@
 
 		<h2>Abstract of Findings</h2>
 		<p id="abstract">
-			Here is where the abstract will go.
+			Several security flaws were detected. These included cross-site-scripting vulnerability, lack of authentication, and vulnerability to database-overloading DoS attacks. This app is definitely at risk from hackers unless these flaws are addressed.
 		</p>
 
 		<h2>Issues Found</h2>
+		<ul id="issues">
+		1. Cross-Site-Scripting (XSS)
+			<li>
+				Javascript or other code can be inserted into the database directly through the username.
+			</li>
+			<li>
+				This problem affects the main page of the app (http://sdeneen-2048.herokuapp.com/)
+			</li>
+			<li>
+				HIGH severity: all manner of javascript could be inserted into the database used by the app, which could pose a security risk not just for this app but for other sites that communicate with it.
+			</li>
+			<li>
+				I found this issue by attempting to insert javascript into my submitted username. I was able to change the background image of the app, cause the app to raise an alert, and even redirect the app to a different web page.
+			</li>
+			<img src='screenshots/xss.png'></img>
+			<img src='screenshots/mingmore.png'></img>
+			<li>
+				This problem is easily prevented by validating and sanitizing all user input. One quick fix would be to write some code in the app to convert any angle brackets to less offending characters.
+			</li>
+		</ul>
+		<ul id="issues">
+		2. All Domains Allowed
+			<li>
+				Anyone can send any data they like to the app from any domain.
+			</li>
+			<li>
+				This problem affects the /submit.json module of the app.
+			</li>
+			<li>
+				LOW severity: less worrisome than the possible XSS attacks, this problem is mainly to do with how "legitimate" the high scores and grids stored in the database are.
+			</li>
+			<li>
+				I found this issue while looking at the source code for the app. I noticed this line: <br />res.header("Access-Control-Allow-Origin", "*");<br />
+				This allows anyone to send any data they like, for example using curl.
+			</li>
+			<img src='screenshots/curl.png'></img>
+			<li>
+				This problem can be prevented by replacing the "*" in the above line of code with the address of the 2048 game client being used with the app.
+			</li>
+		</ul>
+		<ul id="issues">
+		3. DoS
+			<li>
+				Due to limited storage in the MongoLabs database, a denial-of-service attack can be used to shut down the app by overloading the database.
+			</li>
+			<li>
+				This problem affects the entire app, since it directly affects the database.
+			</li>
+			<li>
+				MEDIUM severity: this breach could conceivably be used to shut down the app by filling up the database.
+			</li>
+			<li>
+				I found this flaw while attempting to submit a very long username many, many times via an infinite loop.
+			</li>
+			<img src='screenshots/dos1.png'></img>
+			<img src='screenshots/dos2.png'></img>
+			<li>
+				This problem is difficult to solve without getting a bigger database, but one possible solution would be to limit the maximum size of the username.
+			</li>
+		</ul>
 
 		<h2>Conclusion</h2>
-
+		<p id="conclusion">
+			The issues mentioned in this assessment are relatively simple and straightforward, but they have the potential to completely fry this app. The recommendations in the assessment for patching these flaws should be followed in order to improve the security of the app. The cost of this action should not be prohibitive; any web programming undergrauduate ought to be able to fix these issues in a few hours at most.
+		</p>
 	</body>
 </html>

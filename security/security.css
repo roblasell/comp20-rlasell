@@ -1,0 +1,19 @@
+body {
+	width: 800px;
+	margin-left: 20px;
+}
+
+li {
+	margin-left: 40px;
+	margin-top: 10px;
+}
+
+p {
+	margin-left: 40px;
+}
+
+img {
+	width: 600px;
+	margin-left: 50px;
+	margin-top: 10px;
+}
